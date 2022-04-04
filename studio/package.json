@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Samarbeid med App og Frontend",
   "main": "package.json",
-  "author": "Yngvolainen <yngve.josevold@gmail.com>",
+  "author": "GuroWalle <guro.terjesdatter.walle@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
