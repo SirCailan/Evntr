@@ -19,6 +19,17 @@ export default {
             type: 'string'
         },
         {
+            title: 'Host',
+            description: 'Company or Hosted by:',
+            name: 'host',
+            type: 'string'
+        },
+        {
+            title: 'Category / Type of event',
+            name: 'category',
+            type: 'string'
+        },
+        {
             title: 'Header',
             description: 'Short description about event',
             name: 'header',
