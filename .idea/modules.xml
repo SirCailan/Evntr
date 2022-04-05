@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Evntr.iml" filepath="$PROJECT_DIR$/.idea/Evntr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Evntr.iml" filepath="$PROJECT_DIR$/.idea/modules/Evntr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Evntr.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Evntr.app.iml" />
     </modules>
   </component>
 </project>
