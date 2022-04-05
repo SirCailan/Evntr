@@ -9,52 +9,90 @@
     android:padding="3dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/color_round"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="@drawable/event_card_background"
-        android:id="@+id/color_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView_Time"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/event_card_cover"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="15dp"
-            android:text="TextView"
-            android:textColor="@color/white"
+            android:maxHeight="160dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_banner_foreground" />
 
         <TextView
-            android:id="@+id/textView_Message"
+            android:id="@+id/event_card_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_card_cover"
+            tools:text="Linus Tech Tips World Tour - Uke 23" />
+
+        <TextView
+            android:id="@+id/event_card_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#F44336"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_card_header"
+            tools:text="Fredag, 26.04.2222, kl. 17:30" />
+
+        <TextView
+            android:id="@+id/event_card_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="15dp"
-            android:text="TextView"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="#514A4A"
+            android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Name" />
+            app:layout_constraintTop_toBottomOf="@+id/event_card_time"
+            tools:text="Kantina, Kristiania Campus Kvadraturen" />
 
         <TextView
-            android:id="@+id/textView_Name"
+            android:id="@+id/event_card_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="10dp"
+            android:textColor="#514A4A"
+            android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Innholdet i cellen" />
+            app:layout_constraintTop_toBottomOf="@id/event_card_location"
+            tools:text="Kr. 9 999 999,-"/>
+
+        <TextView
+            android:id="@+id/event_card_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="@id/event_card_cover"
+            app:layout_constraintBottom_toBottomOf="@id/event_card_cover"
+            android:text="◇"
+            android:textSize="60sp"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

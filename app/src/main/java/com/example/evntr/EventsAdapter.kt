@@ -3,6 +3,7 @@ package com.example.evntr
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.evntr.database.Event
 
@@ -11,7 +12,10 @@ class EventsAdapter(
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        var header: TextView = view.findViewById(R.id.event_card_header)
+        var timeDate: TextView = view.findViewById(R.id.event_card_time)
+        var location: TextView = view.findViewById(R.id.event_card_location)
+        var price: TextView = view.findViewById(R.id.event_card_price)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
@@ -29,7 +33,10 @@ class EventsAdapter(
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = dataset[position]
 
-       //TODO: Bind all info to  holder.header.text = event.header
+        holder.header.text = event.header
+        holder.timeDate.text = event.date
+        holder.location.text = event.venue
+        holder.price.text = event.price
     }
 
     override fun getItemCount(): Int {
