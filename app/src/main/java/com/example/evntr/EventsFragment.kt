@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class EventScreen : Fragment() {
+class EventsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

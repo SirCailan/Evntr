@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class MainScreen : Fragment() {
+class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

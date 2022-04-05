@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class FavorittScreen : Fragment() {
+class FavoritesFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
