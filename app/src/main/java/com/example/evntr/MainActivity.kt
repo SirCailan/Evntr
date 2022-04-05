@@ -3,6 +3,7 @@ package com.example.evntr
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
+// #D49CF2 color to back event
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
