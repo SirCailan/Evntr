@@ -15,7 +15,7 @@ export default {
         },
         {
             title: 'Place / Venue',
-            name: 'place',
+            name: 'venue',
             type: 'string'
         },
         {
@@ -33,10 +33,10 @@ export default {
         {
             title: 'Price',
             name: 'price',
-            type: 'number'
+            type: 'string'
         },
         {
-            title: 'Age limit...?',
+            title: 'Age limit',
             name: 'age',
             type: 'string'
         },
