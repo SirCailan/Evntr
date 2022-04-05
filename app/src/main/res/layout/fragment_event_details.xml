@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".EventDetails">
 
+    <ImageView
+        android:id="@+id/background_Logo"
+        android:layout_width="586dp"
+        android:layout_height="944dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/skjermbilde_2022_04_05_kl__14_57_47" />
 
     <ImageView
         android:id="@+id/imageView_Event_Details"
