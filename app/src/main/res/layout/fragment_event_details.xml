@@ -8,6 +8,16 @@
 
 
     <ImageView
+        android:id="@+id/Background_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="871dp"
+        android:src="@drawable/skjermbilde_2022_04_05_kl__14_57_47"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/imageView_Event_Details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
