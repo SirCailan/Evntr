@@ -5,6 +5,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import event from './documents/event.js'
 import user from './documents/user.js'
 
+
+
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
@@ -13,3 +15,5 @@ export default createSchema({
     user
   ]),
 })
+
+
