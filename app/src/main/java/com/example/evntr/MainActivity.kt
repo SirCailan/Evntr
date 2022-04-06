@@ -21,17 +21,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-<<<<<<< Updated upstream
-
-=======
         main = findViewById(R.id.Main_Frame)
         mainScreen = MainScreen()
 
         chooseFragment(mainScreen)
 
     }
+
     fun chooseFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.Main_Frame, fragment).commit()
->>>>>>> Stashed changes
+
     }
 }

@@ -9,7 +9,11 @@
         android:id="@+id/titleScreen"
         android:name="com.example.evntr.TitleScreen"
         android:label="fragment_title_screen"
-        tools:layout="@layout/fragment_title_screen" />
+        tools:layout="@layout/fragment_title_screen" >
+        <action
+            android:id="@+id/action_titleScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
     <fragment
         android:id="@+id/mainScreen"
         android:name="com.example.evntr.MainScreen"

@@ -1,5 +1,6 @@
 package com.example.evntr
 
+import android.media.metrics.Event
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,10 +41,12 @@ class MainFragment : Fragment() {
         favorites = view.findViewById(R.id.Favoritt_Button)
 
         event.setOnClickListener {
-            event()
+           // event()
+           findNavController().navigate(MainScreenDirections.actionMainScreenToEventScreen())
         }
         favorites.setOnClickListener {
-            favorites()
+           // favorites()
+           findNavController().navigate(FavorittScreenDirections.actionFavorittScreenToEventDetails())
         }
     }
 
@@ -64,7 +68,6 @@ class MainFragment : Fragment() {
 
 
         }
-
 
     }
 }
