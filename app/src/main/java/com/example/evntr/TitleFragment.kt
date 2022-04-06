@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class TitleScreen : Fragment() {
+class TitleFragment : Fragment() {
 
     lateinit var loadingPhoto: Drawable
 
@@ -21,6 +21,5 @@ class TitleScreen : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_title_screen, container, false)
     }
-
 
 }

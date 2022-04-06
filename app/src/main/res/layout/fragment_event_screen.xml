@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventsFragment">
+    tools:context=".EventsScreen.EventsFragment">
 
     <ImageView
         android:id="@+id/Logo_Evntr_Event"
@@ -73,8 +73,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Event_RecylerView"
-        android:layout_width="370dp"
-        android:layout_height="450dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"

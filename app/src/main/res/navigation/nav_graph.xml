@@ -3,50 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/titleScreen">
+    app:startDestination="@id/main_fragment">
 
     <fragment
-        android:id="@+id/titleScreen"
-        android:name="com.example.evntr.TitleScreen"
+        android:id="@+id/title_fragment"
+        android:name="com.example.evntr.TitleFragment"
         android:label="fragment_title_screen"
         tools:layout="@layout/fragment_title_screen" >
         <action
-            android:id="@+id/action_titleScreen_to_mainScreen"
-            app:destination="@id/mainScreen" />
+            android:id="@+id/action_title_fragment_to_main_fragment"
+            app:destination="@id/main_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/mainScreen"
-        android:name="com.example.evntr.MainScreen"
+        android:id="@+id/main_fragment"
+        android:name="com.example.evntr.MainFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" >
         <action
-            android:id="@+id/action_mainScreen_to_eventScreen"
-            app:destination="@id/eventScreen" />
+            android:id="@+id/action_main_fragment_to_favorites_fragment"
+            app:destination="@id/favorites_fragment" />
         <action
-            android:id="@+id/action_mainScreen_to_favorittScreen"
-            app:destination="@id/favorittScreen" />
+            android:id="@+id/action_main_fragment_to_events_fragment"
+            app:destination="@id/events_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/eventScreen"
-        android:name="com.example.evntr.EventScreen"
+        android:id="@+id/events_fragment"
+        android:name="com.example.evntr.EventsScreen.EventsFragment"
         android:label="fragment_event_screen"
         tools:layout="@layout/fragment_event_screen" >
         <action
-            android:id="@+id/action_eventScreen_to_eventDetails"
-            app:destination="@id/eventDetails" />
+            android:id="@+id/action_events_fragment_to_details_fragment"
+            app:destination="@id/details_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/favorittScreen"
-        android:name="com.example.evntr.FavorittScreen"
+        android:id="@+id/favorites_fragment"
+        android:name="com.example.evntr.FavoritesFragment"
         android:label="fragment_favoritt_screen"
         tools:layout="@layout/fragment_favoritt_screen" >
         <action
-            android:id="@+id/action_favorittScreen_to_eventDetails"
-            app:destination="@id/eventDetails" />
+            android:id="@+id/action_favorites_fragment_to_details_fragment"
+            app:destination="@id/details_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/eventDetails"
-        android:name="com.example.evntr.EventDetails"
+        android:id="@+id/details_fragment"
+        android:name="com.example.evntr.DetailsFragment"
         android:label="fragment_event_details"
         tools:layout="@layout/fragment_event_details" />
     <activity

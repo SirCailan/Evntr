@@ -1,4 +1,4 @@
-package com.example.evntr
+package com.example.evntr.EventsScreen
 
 import androidx.lifecycle.ViewModel
 import com.android.volley.Request
