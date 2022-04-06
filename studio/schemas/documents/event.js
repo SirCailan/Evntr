@@ -6,17 +6,21 @@ export default {
         {
             title: 'Name of Event',
             name: 'name',
-            type: 'string'
+            type: 'string',
+            validation: Rule => Rule.required(),
         },
         {
             title: 'Date',
             name: 'date',
-            type: 'date'
+            type: 'datetime',
+            validation: Rule => Rule.required().min(new Date),
+
         },
         {
             title: 'Place / Venue',
             name: 'venue',
-            type: 'string'
+            type: 'string',
+            validation: Rule => Rule.required(),
         },
         {
             title: 'Host',
@@ -33,7 +37,8 @@ export default {
             title: 'Header',
             description: 'Short description about event',
             name: 'header',
-            type: 'string'
+            type: 'string',
+            validation: Rule => Rule.required(),
         },
         {
             title: 'Description',
