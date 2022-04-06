@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.evntr.database.Event
+import com.example.evntr.database.DatabaseEvent
 
 class EventsAdapter(
-    private val dataset: List<Event>
+    private val dataset: List<DatabaseEvent>
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,7 +34,7 @@ class EventsAdapter(
         val event = dataset[position]
 
         holder.header.text = event.header
-        holder.timeDate.text = event.date
+        holder.timeDate.text = event.timeDate
         holder.location.text = event.venue
         holder.price.text = event.price
     }
