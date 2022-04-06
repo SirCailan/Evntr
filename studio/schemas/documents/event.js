@@ -38,7 +38,10 @@ export default {
             description: 'Short description about event',
             name: 'header',
             type: 'string',
-            validation: Rule => Rule.required(),
+            validation: Rule => [
+                Rule.required(),
+                Rule.max(125).warning('Keep descriptions short and sweet')
+            ]
         },
         {
             title: 'Description',
