@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_fragment">
+
+    <fragment
+        android:id="@+id/title_fragment"
+        android:name="com.example.evntr.TitleFragment"
+        android:label="fragment_title_screen"
+        tools:layout="@layout/fragment_title_screen" >
+        <action
+            android:id="@+id/action_title_fragment_to_main_fragment"
+            app:destination="@id/main_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.example.evntr.MainFragment"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_main_fragment_to_favorites_fragment"
+            app:destination="@id/favorites_fragment" />
+        <action
+            android:id="@+id/action_main_fragment_to_events_fragment"
+            app:destination="@id/events_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/events_fragment"
+        android:name="com.example.evntr.EventsScreen.EventsFragment"
+        android:label="fragment_event_screen"
+        tools:layout="@layout/fragment_event_screen" >
+        <action
+            android:id="@+id/action_events_fragment_to_details_fragment"
+            app:destination="@id/details_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorites_fragment"
+        android:name="com.example.evntr.FavoritesFragment"
+        android:label="fragment_favoritt_screen"
+        tools:layout="@layout/fragment_favoritt_screen" >
+        <action
+            android:id="@+id/action_favorites_fragment_to_details_fragment"
+            app:destination="@id/details_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/details_fragment"
+        android:name="com.example.evntr.DetailsFragment"
+        android:label="fragment_event_details"
+        tools:layout="@layout/fragment_event_details" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.evntr.MainActivity"
+        android:label="MainActivity" />
+</navigation>
