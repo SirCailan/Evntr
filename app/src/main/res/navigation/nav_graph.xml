@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/titleScreen">
+
+    <fragment
+        android:id="@+id/titleScreen"
+        android:name="com.example.evntr.TitleScreen"
+        android:label="fragment_title_screen"
+        tools:layout="@layout/fragment_title_screen" />
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.example.evntr.MainScreen"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_mainScreen_to_eventScreen"
+            app:destination="@id/eventScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_favorittScreen"
+            app:destination="@id/favorittScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventScreen"
+        android:name="com.example.evntr.EventScreen"
+        android:label="fragment_event_screen"
+        tools:layout="@layout/fragment_event_screen" >
+        <action
+            android:id="@+id/action_eventScreen_to_eventDetails"
+            app:destination="@id/eventDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorittScreen"
+        android:name="com.example.evntr.FavorittScreen"
+        android:label="fragment_favoritt_screen"
+        tools:layout="@layout/fragment_favoritt_screen" >
+        <action
+            android:id="@+id/action_favorittScreen_to_eventDetails"
+            app:destination="@id/eventDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetails"
+        android:name="com.example.evntr.EventDetails"
+        android:label="fragment_event_details"
+        tools:layout="@layout/fragment_event_details" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.evntr.MainActivity"
+        android:label="MainActivity" />
+</navigation>
