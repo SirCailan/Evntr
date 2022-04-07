@@ -2,11 +2,14 @@ package com.example.evntr
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import java.util.*
+import kotlin.concurrent.timer
 
 
 class TitleFragment : Fragment() {
@@ -20,10 +23,15 @@ class TitleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
 
-        Thread.sleep(3000)
+    override fun onResume() {
+        super.onResume()
 
-        findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToMainFragment())
+        Handler().postDelayed({
+            findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToMainFragment())
+        }, 3000)
+
     }
 
 }
