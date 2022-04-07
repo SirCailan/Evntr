@@ -5,12 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.evntr.API.ApiEvent
+import com.example.evntr.API.ApiEventLite
+import com.example.evntr.EventsScreen.EventsFragmentDirections
 import com.squareup.picasso.Picasso
 
 class EventsAdapter(
-    private val dataset: List<ApiEvent>
+    private val dataset: List<ApiEventLite>
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -19,11 +21,20 @@ class EventsAdapter(
         var location: TextView = view.findViewById(R.id.event_card_location)
         var price: TextView = view.findViewById(R.id.event_card_price)
         var image: ImageView = view.findViewById(R.id.event_card_cover)
+
+        init {
+            view.setOnClickListener {
+                val eventId = dataset[bindingAdapterPosition]._id
+
+                it.findNavController().navigate(EventsFragmentDirections.actionEventsFragmentToDetailsFragment(eventId))
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
 
-        val cellView = LayoutInflater.from(parent.context).inflate(R.layout.event_card, parent, false)
+        val cellView =
+            LayoutInflater.from(parent.context).inflate(R.layout.event_card, parent, false)
 
         val params: ViewGroup.LayoutParams = cellView.layoutParams
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT
