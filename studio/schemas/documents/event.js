@@ -19,6 +19,18 @@ export default {
             type: 'string'
         },
         {
+            title: 'Host',
+            name: 'host',
+            type: 'reference',
+            to: [{ type: 'host' }]
+        },
+        {
+            title: 'Speaker',
+            name: 'speaker',
+            type: 'reference',
+            to: [{ type: 'speaker' }]
+        },
+        {
             title: 'Header',
             description: 'Short description about event',
             name: 'header',
