@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/drawable/event_card_background.xml" value="0.186" />
+        <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/drawable/ic_launcher_background.xml" value="0.206" />
         <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/activity_main.xml" value="0.321875" />
         <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/event_card.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/event_card_background.xml" value="0.321875" />
+        <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/fragment_event_details.xml" value="0.321875" />
+        <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/fragment_event_screen.xml" value="0.321875" />
         <entry key="app/src/main/res/layout/fragment_event_details.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_event_screen.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_favoritt_screen.xml" value="0.165" />
