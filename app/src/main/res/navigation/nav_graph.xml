@@ -46,9 +46,12 @@
     </fragment>
     <fragment
         android:id="@+id/details_fragment"
-        android:name="com.example.evntr.DetailsFragment"
+        android:name="com.example.evntr.DetailsScreen.DetailsFragment"
         android:label="fragment_event_details"
-        tools:layout="@layout/fragment_event_details" />
+        tools:layout="@layout/fragment_event_details" >
+        <argument android:name="eventId"
+            app:argType="string" />
+    </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.evntr.MainActivity"
