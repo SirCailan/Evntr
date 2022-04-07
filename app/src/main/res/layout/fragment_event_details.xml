@@ -11,7 +11,7 @@
         android:id="@+id/event_details_backbutton"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#5E5E5E"
         android:bottomLeftRadius="20dp"
@@ -27,6 +27,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="#71B7F3"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
@@ -34,11 +35,19 @@
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/event_details_divider_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/skjermbilde_2022_04_05_kl__10_32_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/event_details_scrollview" />
+
     <ScrollView
+        android:id="@+id/event_details_scrollview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -64,6 +73,8 @@
                 android:id="@+id/event_details_divider_1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:visibility="invisible"
+                tools:visibility="visible"
                 android:src="@drawable/skjermbilde_2022_04_05_kl__10_32_40"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -185,6 +196,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                tools:visibility="visible"
                 android:src="@drawable/skjermbilde_2022_04_05_kl__10_32_40"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -192,5 +205,15 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/event_details_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/event_details_scrollview"
+        app:layout_constraintBottom_toBottomOf="@id/event_details_scrollview"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,11 +10,11 @@
         android:id="@+id/background_logo_Evt"
         android:layout_width="586dp"
         android:layout_height="944dp"
+        android:src="@drawable/logo_backgrunnnew"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo_backgrunnnew" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -29,8 +29,10 @@
 
     <ImageView
         android:id="@+id/line1_Evntr_Event"
-        android:layout_width="375dp"
-        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="0dp"
         android:src="@drawable/skjermbilde_2022_04_05_kl__10_32_40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +65,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1_Evntr_Event" />
+
+    <ProgressBar
+        android:id="@+id/events_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@id/Event_RecylerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/Event_RecylerView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

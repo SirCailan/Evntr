@@ -30,8 +30,7 @@ class TitleFragment : Fragment() {
 
         Handler().postDelayed({
             findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToMainFragment())
-        }, 3000)
-
+        }, 2000)
     }
 
 }

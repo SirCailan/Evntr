@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -17,12 +18,16 @@ import com.example.evntr.R
 import com.squareup.picasso.Picasso
 
 
-class DetailsFragment() : Fragment() {
+class DetailsFragment : Fragment() {
     private val viewModel: DetailsViewModel by viewModels()
     private val args: DetailsFragmentArgs by navArgs() //Parameters from nav_graph
 
     private lateinit var backButton: Button
     private lateinit var addButton: Button
+    private lateinit var upperDivider: ImageView
+    private lateinit var lowerDivider: ImageView
+    private lateinit var loadingSpinner: ProgressBar
+
     private lateinit var eventImage: ImageView
     private lateinit var eventName: TextView
     private lateinit var eventTime: TextView
@@ -46,6 +51,10 @@ class DetailsFragment() : Fragment() {
 
         backButton = view.findViewById(R.id.event_details_backbutton)
         addButton = view.findViewById(R.id.event_details_addbutton)
+        upperDivider = view.findViewById(R.id.event_details_divider_1)
+        lowerDivider = view.findViewById(R.id.event_details_divider_2)
+        loadingSpinner = view.findViewById(R.id.event_details_progressbar)
+
         eventImage = view.findViewById(R.id.event_details_image)
         eventName = view.findViewById(R.id.event_details_header)
         eventTime = view.findViewById(R.id.event_details_time)
@@ -72,11 +81,15 @@ class DetailsFragment() : Fragment() {
 
                 Picasso.with(context).load(imageUrl).into(eventImage)
 
+                upperDivider.visibility = View.VISIBLE
+                lowerDivider.visibility = View.VISIBLE
+                loadingSpinner.visibility = View.GONE
+
                 eventName.text = event.name
                 eventTime.text = event.date
                 eventVenue.text = event.venue
                 eventPrice.text = event.price
-                eventHost.text = event.host.name //TODO, fix proper name for hsot
+                eventHost.text = event.host.name //TODO, fix proper name for host
                 eventType.text = event.category
                 eventAgeLimit.text = event.age
                 eventDescription.text = event.text
