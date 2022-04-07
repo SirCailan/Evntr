@@ -31,6 +31,8 @@
         android:backgroundTint="#71B7F3"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
+        android:visibility="gone"
+        tools:visibility="visible"
         android:text="＋"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
@@ -53,7 +55,7 @@
         android:layout_marginTop="20dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_details_addbutton">
+        app:layout_constraintTop_toBottomOf="@+id/event_details_backbutton">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

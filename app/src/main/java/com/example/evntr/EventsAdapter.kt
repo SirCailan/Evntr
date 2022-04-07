@@ -12,7 +12,7 @@ import com.example.evntr.EventsScreen.EventsFragmentDirections
 import com.squareup.picasso.Picasso
 
 class EventsAdapter(
-    private val dataset: List<ApiEventLite>
+    private var dataset: List<ApiEventLite>
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -50,12 +50,17 @@ class EventsAdapter(
         holder.header.text = event.name
         holder.timeDate.text = event.date
         holder.location.text = event.venue
-        holder.price.text = event.price
+        holder.price.text = "Kr. ${event.price},-"
         Picasso.with(holder.image.context).load(event.cover?.asset?.url).into(holder.image)
     }
 
     override fun getItemCount(): Int {
         return dataset.size
+    }
+
+    fun swapDataset(newDataset: List<ApiEventLite>) {
+        dataset = newDataset
+        notifyDataSetChanged()
     }
 
 }
