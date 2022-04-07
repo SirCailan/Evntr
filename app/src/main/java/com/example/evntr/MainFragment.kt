@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 class MainFragment : Fragment() {
 
     lateinit var eventsButton: Button
-    lateinit var favoritesButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,16 +24,11 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        eventsButton = view.findViewById(R.id.Events_Button)
-        favoritesButton = view.findViewById(R.id.Favoritt_Button)
+        eventsButton = view.findViewById(R.id.mainscreen_event_button)
 
         eventsButton.setOnClickListener {
            // event()
                findNavController().navigate(MainFragmentDirections.actionMainFragmentToEventsFragment())
-        }
-        favoritesButton.setOnClickListener {
-           // favorites()
-           findNavController().navigate(MainFragmentDirections.actionMainFragmentToFavoritesFragment())
         }
     }
 }
