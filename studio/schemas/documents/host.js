@@ -13,6 +13,19 @@ export default {
             title: 'Image',
             name: 'image',
             type: 'image',
+            fields: [
+                {
+                    title: 'Caption',
+                    name: 'caption',
+                    type: 'text',
+                    options: {
+                        isHighlighted: true
+                    }
+                }
+            ],
+            options: {
+                hotspot: true,
+            }
         },
         {
 			title: 'Address',

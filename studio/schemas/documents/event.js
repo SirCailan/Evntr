@@ -55,12 +55,38 @@ export default {
         {
             title: 'Cover Image',
             name: 'cover',
-            type: 'image'
+            type: 'image',
+            fields: [
+                {
+                    title: 'Caption',
+                    name: 'caption',
+                    type: 'text',
+                    options: {
+                        isHighlighted: true
+                    }
+                }
+            ],
+            options: {
+                hotspot: true,
+            }
         },
         {
             title: 'Full Image',
             name: 'image',
-            type: 'image'
+            type: 'image',
+            fields: [
+                {
+                    title: 'Caption',
+                    name: 'caption',
+                    type: 'text',
+                    options: {
+                        isHighlighted: true
+                    }
+                }
+            ],
+            options: {
+                hotspot: true,
+            }
         }
     ]
 }
