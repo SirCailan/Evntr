@@ -6,16 +6,31 @@ export default {
         {
             title: 'Name of Event',
             name: 'name',
-            type: 'string'
+            type: 'string',
+            validation: Rule => Rule.required(),
         },
         {
             title: 'Date',
             name: 'date',
-            type: 'date'
+            type: 'datetime',
+            validation: Rule => Rule.required().min(new Date),
+
         },
         {
             title: 'Place / Venue',
             name: 'venue',
+            type: 'string',
+            validation: Rule => Rule.required(),
+        },
+        {
+            title: 'Host',
+            description: 'Company or Hosted by:',
+            name: 'host',
+            type: 'string'
+        },
+        {
+            title: 'Category / Type of event',
+            name: 'category',
             type: 'string'
         },
         {
@@ -34,7 +49,11 @@ export default {
             title: 'Header',
             description: 'Short description about event',
             name: 'header',
-            type: 'string'
+            type: 'string',
+            validation: Rule => [
+                Rule.required(),
+                Rule.max(125).warning('Keep descriptions short and sweet')
+            ]
         },
         {
             title: 'Description',

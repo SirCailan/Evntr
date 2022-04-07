@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Samarbeid med App og Frontend",
   "main": "package.json",
-  "author": "Judith Peter <judith.lourde@gmail.com>",
+  "author": "Yngvolainen <yngve.josevold@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
