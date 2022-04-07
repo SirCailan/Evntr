@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.toolbox.Volley
 import com.example.evntr.EventsAdapter
-import com.example.evntr.MainFragment
 import com.example.evntr.R
 
 
@@ -21,7 +20,7 @@ class EventsFragment : Fragment() {
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myLayoutManager: LinearLayoutManager
     private lateinit var myAdapter: EventsAdapter
-    private val viewModel: EventsViewHolder by viewModels()
+    private val viewModel: EventsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +42,7 @@ class EventsFragment : Fragment() {
 
         myRecyclerView.layoutManager = myLayoutManager
 
-        val eventsList = viewModel.getAllEvents(Volley.newRequestQueue(context)) { events ->
+        val eventsList = viewModel.fetchAllEvents(Volley.newRequestQueue(context)) { events ->
             if (events != null) {
                 myAdapter = EventsAdapter(events)
                 myRecyclerView.adapter = myAdapter
