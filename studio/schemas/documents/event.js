@@ -34,6 +34,18 @@ export default {
             type: 'string'
         },
         {
+            title: 'Host',
+            name: 'host',
+            type: 'reference',
+            to: [{ type: 'host' }]
+        },
+        {
+            title: 'Speaker',
+            name: 'speaker',
+            type: 'reference',
+            to: [{ type: 'speaker' }]
+        },
+        {
             title: 'Header',
             description: 'Short description about event',
             name: 'header',
@@ -62,12 +74,38 @@ export default {
         {
             title: 'Cover Image',
             name: 'cover',
-            type: 'image'
+            type: 'image',
+            fields: [
+                {
+                    title: 'Caption',
+                    name: 'caption',
+                    type: 'text',
+                    options: {
+                        isHighlighted: true
+                    }
+                }
+            ],
+            options: {
+                hotspot: true,
+            }
         },
         {
             title: 'Full Image',
             name: 'image',
-            type: 'image'
+            type: 'image',
+            fields: [
+                {
+                    title: 'Caption',
+                    name: 'caption',
+                    type: 'text',
+                    options: {
+                        isHighlighted: true
+                    }
+                }
+            ],
+            options: {
+                hotspot: true,
+            }
         }
     ]
 }
