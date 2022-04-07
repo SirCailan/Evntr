@@ -1,0 +1,42 @@
+Frontpage query for eventlist, sorted by date:
+
+QUERY
+*[_type == 'event'] | order(date asc) {
+  _id, 
+  name, 
+  cover {
+    asset-> {
+      url
+    }
+  },
+  date,
+  venue,
+  price,
+  age
+}
+
+ingen PARAMS
+
+
+Query for individuell event, all info i grunn...
+
+QUERY
+*[_id == $__eventID__][0] {
+  ..., 
+  cover {
+    asset-> {
+      url
+    }
+  },
+  image {
+    asset-> {
+      url
+    }
+  }
+}
+PARAMS
+{
+  "__eventID__" : "<_id-for-event"
+}
+
+eks eventID: f373e74b-6401-4132-8c24-a94084d002c0
