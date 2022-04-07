@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
+import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,15 +18,14 @@ import com.example.evntr.R
 
 
 class EventsFragment : Fragment() {
+    private val viewModel: EventsViewModel by viewModels()
+
     private lateinit var backButton: Button
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myLayoutManager: LinearLayoutManager
     private lateinit var myAdapter: EventsAdapter
-    private val viewModel: EventsViewModel by viewModels()
+    private lateinit var loadingSpinner: ProgressBar
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,17 +38,21 @@ class EventsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadingSpinner = view.findViewById(R.id.events_progressbar)
+
         myRecyclerView = view.findViewById(R.id.Event_RecylerView)
         myLayoutManager = LinearLayoutManager(activity)
 
         myRecyclerView.layoutManager = myLayoutManager
-
-        val eventsList = viewModel.fetchAllEvents(Volley.newRequestQueue(context)) { events ->
+        
+        viewModel.fetchAllEvents(Volley.newRequestQueue(context)) { events ->
             if (events != null) {
                 myAdapter = EventsAdapter(events)
+
+                loadingSpinner.visibility = View.GONE
+
                 myRecyclerView.adapter = myAdapter
             }
-
         }
 
         backButton = view.findViewById(R.id.Event_Back_Button)
