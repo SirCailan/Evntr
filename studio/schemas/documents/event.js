@@ -23,12 +23,6 @@ export default {
             validation: Rule => Rule.required(),
         },
         {
-            title: 'Host',
-            description: 'Company or Hosted by:',
-            name: 'host',
-            type: 'string'
-        },
-        {
             title: 'Category / Type of event',
             name: 'category',
             type: 'string'
