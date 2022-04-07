@@ -1,6 +1,6 @@
 package com.example.evntr.API
 
-data class ApiEvent(
+data class ApiEventLite(
     val _id: String,
     val age: String?,
     val cover: ImageAsset?, //URL
