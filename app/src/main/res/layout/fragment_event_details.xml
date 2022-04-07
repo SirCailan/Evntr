@@ -6,6 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".DetailsFragment">
 
+    <Button
+        android:id="@+id/Events_Back_Button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#5E5E5E"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:text="◁"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Event_Add_Button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#71B7F3"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:text="＋"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/background_Logo"
         android:layout_width="586dp"
@@ -14,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/skjermbilde_2022_04_05_kl__14_57_47" />
+        android:src="@drawable/logo_backgrunnnew" />
 
     <ImageView
         android:id="@+id/imageView_Event_Details"
@@ -26,19 +57,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_Title_Details" />
 
+    <ImageView
+        android:id="@+id/line_Evntr_evt2"
+        android:layout_width="375dp"
+        android:layout_height="0dp"
+        android:src="@drawable/skjermbilde_2022_04_05_kl__10_32_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Time_Details" />
+
     <TextView
         android:id="@+id/textView_Title_Details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        tools:text="TITLE"
-        android:textSize="46dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
         android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="46dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/Events_Back_Button"
+        tools:text="TITLE" />
 
     <TextView
         android:id="@+id/textView_Time_Details"
@@ -59,16 +99,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="177dp"
-        tools:text="PLCAE/LOCATION"
-        android:textColor="@color/black"
         android:gravity="center"
+        android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Time_Details" />
+        app:layout_constraintTop_toBottomOf="@+id/line_Evntr_evt2"
+        tools:text="PLCAE/LOCATION" />
 
     <TextView
         android:id="@+id/textView_Price_Details"
