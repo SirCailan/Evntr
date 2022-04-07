@@ -22,17 +22,22 @@ Query for individuell event, all info i grunn...
 
 QUERY
 *[_id == $__eventID__][0] {
-  ..., 
-  cover {
-    asset-> {
-      url
-    }
-  },
+  _id,
+  name,
   image {
     asset-> {
       url
     }
-  }
+  },
+  date,
+  venue,
+  price,
+  host-> {
+    name
+  },
+  category,
+  age,
+  text
 }
 PARAMS
 {
@@ -40,3 +45,14 @@ PARAMS
 }
 
 eks eventID: f373e74b-6401-4132-8c24-a94084d002c0
+
+_id
+name
+image.full
+date
+venue
+price
+host.name
+category
+age
+description/full text
