@@ -17,6 +17,8 @@ QUERY
 
 ingen PARAMS
 
+https://a9von6e3.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%20%3D%3D%20'event'%5D%20%7C%20order(date%20asc)%20%7B%0A%20%20_id%2C%20%0A%20%20name%2C%20%0A%20%20cover%20%7B%0A%20%20%20%20asset-%3E%20%7B%0A%20%20%20%20%20%20url%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20date%2C%0A%20%20venue%2C%0A%20%20price%2C%0A%20%20age%0A%7D
+
 
 Query for individuell event, all info i grunn...
 
@@ -41,18 +43,9 @@ QUERY
 }
 PARAMS
 {
-  "__eventID__" : "<_id-for-event"
+  "__eventID__" : "<_id-for-event>"
 }
 
-eks eventID: f373e74b-6401-4132-8c24-a94084d002c0
+https://a9von6e3.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_id%20%3D%3D%20%24__eventID__%5D%5B0%5D%20%7B%0A%20%20_id%2C%0A%20%20name%2C%0A%20%20image%20%7B%0A%20%20%20%20asset-%3E%20%7B%0A%20%20%20%20%20%20url%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20date%2C%0A%20%20venue%2C%0A%20%20price%2C%0A%20%20host-%3E%20%7B%0A%20%20%20%20name%0A%20%20%7D%2C%0A%20%20category%2C%0A%20%20age%2C%0A%20%20text%0A%7D&%24__eventID__=%22f373e74b-6401-4132-8c24-a94084d002c0%22
 
-_id
-name
-image.full
-date
-venue
-price
-host.name
-category
-age
-description/full text
+eks eventID: f373e74b-6401-4132-8c24-a94084d002c0

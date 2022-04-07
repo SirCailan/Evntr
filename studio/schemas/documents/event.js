@@ -13,6 +13,9 @@ export default {
             title: 'Date',
             name: 'date',
             type: 'datetime',
+            options: {
+                dateFormat: 'YYYY MMM D',
+            },
             validation: Rule => Rule.required().min(new Date),
 
         },
