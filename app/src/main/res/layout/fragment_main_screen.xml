@@ -7,6 +7,16 @@
     tools:context=".MainFragment">
 
     <ImageView
+        android:id="@+id/background_logo_Main"
+        android:layout_width="586dp"
+        android:layout_height="944dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/logo_backgrunnnew" />
+
+    <ImageView
         android:id="@+id/Logo_Evntr_Main"
         android:layout_width="185dp"
         android:layout_height="111dp"
