@@ -7,7 +7,7 @@ export default {
             title: 'Name',
             name: 'name',
             type: 'string',
-            description: 'Please use "Firstname Lastname" format',
+            description: 'Please use company name',
         },
         {
             title: 'Image',
@@ -28,24 +28,24 @@ export default {
             }
         },
         {
-			title: 'Address',
-			name: 'address',
-			type: 'object',
-			fields: [
-				{
-					name: 'street',
-					description: 'Street name with door number',
-					type: 'string',
-				},
+            title: 'Address',
+            name: 'address',
+            type: 'object',
+            fields: [
+                {
+                    name: 'street',
+                    description: 'Street name with door number',
+                    type: 'string',
+                },
                 {
                     name: 'city',
                     type: 'string'
                 },
-				{
-					name: 'zip',
-					type: 'number',
-				}
-			]
-		}
+                {
+                    name: 'zip',
+                    type: 'number',
+                }
+            ]
+        }
     ]
 }
