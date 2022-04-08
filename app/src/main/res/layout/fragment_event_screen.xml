@@ -4,22 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/logo_backgrunnnew"
     tools:context=".EventsScreen.EventsFragment">
 
     <ImageView
-        android:id="@+id/background_logo_Evt"
-        android:layout_width="586dp"
-        android:layout_height="944dp"
-        android:src="@drawable/logo_backgrunnnew"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
         android:id="@+id/Logo_Evntr_Event"
-        android:layout_width="201dp"
+        android:layout_width="140dp"
         android:layout_height="55dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
@@ -30,29 +20,39 @@
     <ImageView
         android:id="@+id/line1_Evntr_Event"
         android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
         android:src="@drawable/skjermbilde_2022_04_05_kl__10_32_40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo_Evntr_Event" />
+        app:layout_constraintTop_toBottomOf="@+id/events_sort_spinner" />
 
     <Button
         android:id="@+id/Event_Back_Button"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
-        android:backgroundTint="#AA5862"
+        android:backgroundTint="#5E5E5E"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:text="◁"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/Logo_Evntr_Event"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/events_sort_spinner"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintEnd_toStartOf="@+id/Logo_Evntr_Event"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Event_Back_Button" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Event_RecylerView"

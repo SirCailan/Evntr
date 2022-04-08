@@ -7,11 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 
 class MainFragment : Fragment() {
 
-    lateinit var eventsButton: Button
+    private lateinit var eventsButton: Button
+
+    private lateinit var myAdapter: EventsAdapter
+    private lateinit var myLayoutManager: LinearLayoutManager
+    private lateinit var myRecyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +31,15 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         eventsButton = view.findViewById(R.id.mainscreen_event_button)
+
+        myRecyclerView = view.findViewById(R.id.Event_RecylerView)
+        myLayoutManager = LinearLayoutManager(activity)
+        myRecyclerView.layoutManager = myLayoutManager
+
+        //TODO: Add the list of events you're participating in to the adapter.
+        //myAdapter = EventsAdapter()
+
+        //myRecyclerView.adapter = myAdapter
 
         eventsButton.setOnClickListener {
            // event()

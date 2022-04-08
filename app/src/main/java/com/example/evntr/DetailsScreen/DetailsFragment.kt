@@ -69,27 +69,24 @@ class DetailsFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        val eventId = args.eventId
+        val id = args.eventId
 
-        viewModel.fetchEventDetails(Volley.newRequestQueue(context), eventId) { event ->
+        viewModel.fetchEventDetails(Volley.newRequestQueue(context), id) { event ->
             if (event != null) {
-                addButton.setOnClickListener {
-                    //TODO Add event to list / database to view in MainFragment
-                }
 
-                val imageUrl = event.image.asset.url
+                setAddButton(event)
+
+                val imageUrl = event.image?.asset?.url
 
                 Picasso.with(context).load(imageUrl).into(eventImage)
 
-                upperDivider.visibility = View.VISIBLE
-                lowerDivider.visibility = View.VISIBLE
-                loadingSpinner.visibility = View.GONE
+                enableVisibility()
 
                 eventName.text = event.name
                 eventTime.text = event.date
                 eventVenue.text = event.venue
-                eventPrice.text = event.price
-                eventHost.text = event.host.name //TODO, fix proper name for host
+                eventPrice.text = "Kr. ${event.price},-"
+                eventHost.text = event.host?.name //TODO, fix proper name for host
                 eventType.text = event.category
                 eventAgeLimit.text = event.age
                 eventDescription.text = event.text
@@ -97,4 +94,23 @@ class DetailsFragment : Fragment() {
         }
     }
 
+    private fun enableVisibility() {
+        addButton.visibility = View.VISIBLE
+        upperDivider.visibility = View.VISIBLE
+        lowerDivider.visibility = View.VISIBLE
+        loadingSpinner.visibility = View.GONE
+    }
+
+    private fun setAddButton(event: ApiEventFull) {
+
+        addButton.setOnClickListener {
+
+            //TODO: Add to list of events you're participating in.
+
+            addButton.text = "Added!"
+            addButton.isClickable = false
+        }
+
+
+    }
 }

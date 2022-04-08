@@ -51,7 +51,7 @@
         android:backgroundTint="#67AA58"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
-        android:text="Events"
+        android:text="All Events"
         android:textSize="20sp"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"

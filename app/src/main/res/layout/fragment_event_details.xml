@@ -31,11 +31,13 @@
         android:backgroundTint="#71B7F3"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
-        android:text="＋"
+        android:text="Sign up"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/event_details_divider_buttons"
@@ -53,7 +55,7 @@
         android:layout_marginTop="20dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_details_addbutton">
+        app:layout_constraintTop_toBottomOf="@+id/event_details_backbutton">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
