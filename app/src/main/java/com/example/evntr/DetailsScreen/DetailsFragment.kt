@@ -76,7 +76,7 @@ class DetailsFragment : Fragment() {
 
                 setAddButton(event)
 
-                val imageUrl = event.image.asset.url
+                val imageUrl = event.image?.asset?.url
 
                 Picasso.with(context).load(imageUrl).into(eventImage)
 
@@ -86,7 +86,7 @@ class DetailsFragment : Fragment() {
                 eventTime.text = event.date
                 eventVenue.text = event.venue
                 eventPrice.text = "Kr. ${event.price},-"
-                eventHost.text = event.host.name //TODO, fix proper name for host
+                eventHost.text = event.host?.name //TODO, fix proper name for host
                 eventType.text = event.category
                 eventAgeLimit.text = event.age
                 eventDescription.text = event.text

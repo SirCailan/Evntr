@@ -6,9 +6,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.beust.klaxon.Klaxon
 import com.example.evntr.API.ApiEventFull
-import com.example.evntr.API.ApiEventLite
 import com.example.evntr.API.ApiObjectFull
-import com.example.evntr.API.ApiObjectLite
 
 class DetailsViewModel : ViewModel() {
 
