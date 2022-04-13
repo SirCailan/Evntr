@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley
 import com.example.evntr.API.ApiEventLite
 import com.example.evntr.EventsAdapter
 import com.example.evntr.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class EventsFragment : Fragment() {
@@ -36,6 +37,10 @@ class EventsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val navView: BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
+
+        navView.visibility = View.VISIBLE
 
         backButton = view.findViewById(R.id.Event_Back_Button)
         sortSpinner = view.findViewById(R.id.events_sort_spinner)
@@ -60,31 +65,35 @@ class EventsFragment : Fragment() {
 
         myRecyclerView.layoutManager = myLayoutManager
 
-        
-        viewModel.fetchAllEvents(Volley.newRequestQueue(context), sortBy = 0) { events ->
-            if (events != null) {
-                myAdapter = EventsAdapter(events)
 
-                loadingSpinner.visibility = View.GONE
+        myAdapter = EventsAdapter(viewModel.retreiveEventsList() as MutableList<ApiEventLite>)
 
-                myRecyclerView.adapter = myAdapter
+        loadingSpinner.visibility = View.GONE
 
-                onSelectSpinnerItem()
-            }
-        }
+        myRecyclerView.adapter = myAdapter
+
+        onSelectSpinnerItem()
     }
 
     fun onSelectSpinnerItem() {
-        sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
                 if (parent != null) {
-                    viewModel.fetchAllEvents(Volley.newRequestQueue(context), sortBy = position) { events ->
-                        if (events != null) {
-                            myAdapter.swapDataset(events)
+                    viewModel.fetchAllEvents(
+                        Volley.newRequestQueue(context),
+                        sortBy = position
+                    ) { success ->
+                        if (success == true) {
+                            myAdapter.swapDataset(viewModel.retreiveEventsList() as MutableList<ApiEventLite>)
                             myRecyclerView.scrollToPosition(0)
                         }
                     }
