@@ -27,10 +27,10 @@ class TitleFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
         Handler().postDelayed({
             findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToMainFragment())
         }, 2000)
     }
+
 
 }

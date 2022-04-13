@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        eventsButton = view.findViewById(R.id.mainscreen_event_button)
+        //eventsButton = view.findViewById(R.id.mainscreen_event_button)
 
         myRecyclerView = view.findViewById(R.id.Event_RecylerView)
         myLayoutManager = LinearLayoutManager(activity)

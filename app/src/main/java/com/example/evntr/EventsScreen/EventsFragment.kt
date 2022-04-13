@@ -37,7 +37,7 @@ class EventsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        backButton = view.findViewById(R.id.Event_Back_Button)
+        //backButton = view.findViewById(R.id.Event_Back_Button)
         sortSpinner = view.findViewById(R.id.events_sort_spinner)
 
         ArrayAdapter.createFromResource(
