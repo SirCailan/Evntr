@@ -12,7 +12,7 @@ import com.example.evntr.EventsScreen.EventsFragmentDirections
 import com.squareup.picasso.Picasso
 
 class EventsAdapter(
-    private var dataset: List<ApiEventLite>
+    private var dataset: MutableList<ApiEventLite>
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -58,7 +58,7 @@ class EventsAdapter(
         return dataset.size
     }
 
-    fun swapDataset(newDataset: List<ApiEventLite>) {
+    fun swapDataset(newDataset: MutableList<ApiEventLite>) {
         dataset = newDataset
         notifyDataSetChanged()
     }
