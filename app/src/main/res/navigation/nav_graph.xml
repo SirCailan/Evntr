@@ -11,18 +11,14 @@
         android:label="fragment_title_screen"
         tools:layout="@layout/fragment_title_screen" >
         <action
-            android:id="@+id/action_title_fragment_to_main_fragment"
-            app:destination="@id/main_fragment" />
+            android:id="@+id/action_title_fragment_to_events_fragment"
+            app:destination="@id/events_fragment" />
     </fragment>
     <fragment
         android:id="@+id/main_fragment"
         android:name="com.example.evntr.MainFragment"
         android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" >
-        <action
-            android:id="@+id/action_main_fragment_to_events_fragment"
-            app:destination="@id/events_fragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main_screen" />
     <fragment
         android:id="@+id/events_fragment"
         android:name="com.example.evntr.EventsScreen.EventsFragment"
@@ -31,6 +27,9 @@
         <action
             android:id="@+id/action_events_fragment_to_details_fragment"
             app:destination="@id/details_fragment" />
+        <action
+            android:id="@+id/action_events_fragment_to_main_fragment"
+            app:destination="@id/main_fragment" />
     </fragment>
     <fragment
         android:id="@+id/details_fragment"

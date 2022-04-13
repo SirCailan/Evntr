@@ -13,6 +13,9 @@ export default {
             title: 'Date',
             name: 'date',
             type: 'datetime',
+            options: {
+                dateFormat: 'YYYY MMM D',
+            },
             validation: Rule => Rule.required().min(new Date),
 
         },
@@ -23,15 +26,21 @@ export default {
             validation: Rule => Rule.required(),
         },
         {
-            title: 'Host',
-            description: 'Company or Hosted by:',
-            name: 'host',
-            type: 'string'
-        },
-        {
             title: 'Category / Type of event',
             name: 'category',
             type: 'string'
+        },
+        {
+            title: 'Host',
+            name: 'host',
+            type: 'reference',
+            to: [{ type: 'host' }]
+        },
+        {
+            title: 'Speaker',
+            name: 'speaker',
+            type: 'reference',
+            to: [{ type: 'speaker' }]
         },
         {
             title: 'Header',
@@ -62,12 +71,38 @@ export default {
         {
             title: 'Cover Image',
             name: 'cover',
-            type: 'image'
+            type: 'image',
+            fields: [
+                {
+                    title: 'Caption',
+                    name: 'caption',
+                    type: 'text',
+                    options: {
+                        isHighlighted: true
+                    }
+                }
+            ],
+            options: {
+                hotspot: true,
+            }
         },
         {
             title: 'Full Image',
             name: 'image',
-            type: 'image'
+            type: 'image',
+            fields: [
+                {
+                    title: 'Caption',
+                    name: 'caption',
+                    type: 'text',
+                    options: {
+                        isHighlighted: true
+                    }
+                }
+            ],
+            options: {
+                hotspot: true,
+            }
         }
     ]
 }

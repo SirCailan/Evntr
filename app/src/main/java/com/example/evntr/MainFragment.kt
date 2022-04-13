@@ -43,7 +43,7 @@ class MainFragment : Fragment() {
 
         eventsButton.setOnClickListener {
            // event()
-               findNavController().navigate(MainFragmentDirections.actionMainFragmentToEventsFragment())
+               //findNavController().navigate(MainFragmentDirections.actionMainFragmentToEventsFragment())
         }
     }
 }

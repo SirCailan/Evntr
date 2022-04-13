@@ -10,7 +10,9 @@ import com.example.evntr.API.ApiObjectLite
 
 class EventsViewModel : ViewModel() {
 
-    fun fetchAllEvents(queue: RequestQueue, sortBy: Int, callback: (List<ApiEventLite>?) ->  Unit) {
+    private var eventsList: MutableList<ApiEventLite>? = mutableListOf()
+
+    fun fetchAllEvents(queue: RequestQueue, sortBy: Int, callback: (Boolean) ->  Unit) {
         var sortString: String = ""
 
         when (sortBy) {
@@ -33,16 +35,28 @@ class EventsViewModel : ViewModel() {
             Request.Method.GET,
             url,
             { response ->
-                val it = Klaxon().parse<ApiObjectLite?>(response)
+                val it = Klaxon().parse<ApiObjectLite>(response)
+
                 if (it != null) {
-                    callback(it.result)
+                    eventsList = it.result
+
+                    callback(true)
                 }
+
             },
             { error ->
-                callback(null)
+                callback(false)
             }
         )
 
         queue.add(stringRequest)
+    }
+
+    fun retreiveEventsList(): List<ApiEventLite> {
+        if (eventsList != null) {
+            return eventsList as MutableList<ApiEventLite>
+        } else {
+            return emptyList()
+        }
     }
 }

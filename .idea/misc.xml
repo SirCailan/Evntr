@@ -6,11 +6,17 @@
         <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/drawable/event_card_background.xml" value="0.186" />
         <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/activity_main.xml" value="0.321875" />
         <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/event_card.xml" value="0.375" />
-        <entry key="app/src/main/res/drawable/event_card_background.xml" value="0.121" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24166666666666667" />
-        <entry key="app/src/main/res/layout/fragment_event_details.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_event_screen.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_favoritt_screen.xml" value="0.25" />
+        <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/fragment_event_screen.xml" value="0.30925925925925923" />
+        <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/layout/fragment_main_screen.xml" value="0.3255208333333333" />
+        <entry key="..\:/Users/47476/OneDrive/Dokumenter/GitHub/Evntr/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3098958333333333" />
+        <entry key="..\:/Users/Andreas/Documents/GitHub/Evntr/app/src/main/res/layout/activity_main.xml" value="0.32447916666666665" />
+        <entry key="..\:/Users/Andreas/Documents/GitHub/Evntr/app/src/main/res/layout/event_card.xml" value="0.3888888888888889" />
+        <entry key="..\:/Users/Andreas/Documents/GitHub/Evntr/app/src/main/res/layout/fragment_event_details.xml" value="0.5703125" />
+        <entry key="..\:/Users/Andreas/Documents/GitHub/Evntr/app/src/main/res/layout/fragment_event_screen.xml" value="0.3831242873432155" />
+        <entry key="..\:/Users/Andreas/Documents/GitHub/Evntr/app/src/main/res/layout/fragment_main_screen.xml" value="0.5703125" />
+        <entry key="app/src/main/res/layout/fragment_event_details.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/fragment_event_screen.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_favoritt_screen.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_loading_screen.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_main_screen.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_title_screen.xml" value="0.24166666666666667" />
