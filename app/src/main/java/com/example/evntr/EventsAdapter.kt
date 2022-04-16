@@ -7,12 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.evntr.API.ApiEventLite
+import com.example.evntr.API.Event
 import com.example.evntr.EventsScreen.EventsFragmentDirections
 import com.squareup.picasso.Picasso
 
 class EventsAdapter(
-    private var dataset: MutableList<ApiEventLite>
+    private var dataset: MutableList<Event>
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -58,7 +58,7 @@ class EventsAdapter(
         return dataset.size
     }
 
-    fun swapDataset(newDataset: MutableList<ApiEventLite>) {
+    fun swapDataset(newDataset: MutableList<Event>) {
         dataset = newDataset
         notifyDataSetChanged()
     }

@@ -1,7 +1,7 @@
 package com.example.evntr.API
 
-data class ApiObjectLite(
+data class ApiObjectEvent(
     val ms: Int?,
     val query: String?,
-    val result: MutableList<ApiEventLite>?
+    val result: EventDetails?
 )

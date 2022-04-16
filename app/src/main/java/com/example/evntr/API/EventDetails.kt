@@ -1,6 +1,6 @@
 package com.example.evntr.API
 
-data class ApiEventFull(
+data class EventDetails(
     val _id: String,
     val age: String?,
     val category: String?,

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
-class MainFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     private lateinit var eventsButton: Button
 

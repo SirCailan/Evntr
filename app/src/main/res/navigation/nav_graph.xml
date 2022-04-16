@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/main_fragment"
-        android:name="com.example.evntr.MainFragment"
+        android:name="com.example.evntr.ProfileFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" />
     <fragment

@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.toolbox.Volley
-import com.example.evntr.API.ApiEventFull
+import com.example.evntr.API.EventDetails
 import com.example.evntr.R
 import com.squareup.picasso.Picasso
 
@@ -101,7 +101,7 @@ class DetailsFragment : Fragment() {
         loadingSpinner.visibility = View.GONE
     }
 
-    private fun setAddButton(event: ApiEventFull) {
+    private fun setAddButton(event: EventDetails) {
 
         addButton.setOnClickListener {
 

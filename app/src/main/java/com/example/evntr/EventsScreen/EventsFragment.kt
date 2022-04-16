@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.toolbox.Volley
-import com.example.evntr.API.ApiEventLite
+import com.example.evntr.API.Event
 import com.example.evntr.EventsAdapter
 import com.example.evntr.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,7 +38,7 @@ class EventsFragment : Fragment() {
 
         val navView: BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
 
-        navView.visibility = View.VISIBLE
+        navView.visibility = View.VISIBLE //Makes bottom navigation bar visible
 
         sortSpinner = view.findViewById(R.id.events_sort_spinner)
 
@@ -59,8 +58,7 @@ class EventsFragment : Fragment() {
 
         myRecyclerView.layoutManager = myLayoutManager
 
-
-        myAdapter = EventsAdapter(viewModel.retreiveEventsList() as MutableList<ApiEventLite>)
+        myAdapter = EventsAdapter(viewModel.retreiveEventsList() as MutableList<Event>)
 
         loadingSpinner.visibility = View.GONE
 
@@ -86,9 +84,9 @@ class EventsFragment : Fragment() {
                         Volley.newRequestQueue(context),
                         sortBy = position
                     ) { success ->
-                        if (success == true) {
-                            myAdapter.swapDataset(viewModel.retreiveEventsList() as MutableList<ApiEventLite>)
-                            myRecyclerView.scrollToPosition(0)
+                        if (success) {
+                            myAdapter.swapDataset(viewModel.retreiveEventsList() as MutableList<Event>)
+                            //myRecyclerView.scrollToPosition(0)
                         }
                     }
                 }
