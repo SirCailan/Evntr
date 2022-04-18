@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/events_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_backup_table_24"
         android:title="Events" />
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/profile_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profil" />

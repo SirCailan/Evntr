@@ -1,19 +1,19 @@
-package com.example.evntr
+package com.example.evntr.profilescreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.evntr.EventsAdapter
+import com.example.evntr.R
+import com.example.evntr.myEventsList
 
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var eventsButton: Button
 
     private lateinit var myAdapter: EventsAdapter
     private lateinit var myLayoutManager: LinearLayoutManager
@@ -24,26 +24,19 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_screen, container, false)
+        return inflater.inflate(R.layout.fragment_profile_screen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //eventsButton = view.findViewById(R.id.mainscreen_event_button)
 
-        myRecyclerView = view.findViewById(R.id.Event_RecylerView)
+        myRecyclerView = view.findViewById(R.id.profile_events_recyclerview)
         myLayoutManager = LinearLayoutManager(activity)
         myRecyclerView.layoutManager = myLayoutManager
 
-        //TODO: Add the list of events you're participating in to the adapter.
-        //myAdapter = EventsAdapter()
+        myAdapter = EventsAdapter(myEventsList)
 
-        //myRecyclerView.adapter = myAdapter
-
-        eventsButton.setOnClickListener {
-           // event()
-               //findNavController().navigate(MainFragmentDirections.actionMainFragmentToEventsFragment())
-        }
+        myRecyclerView.adapter = myAdapter
     }
 }

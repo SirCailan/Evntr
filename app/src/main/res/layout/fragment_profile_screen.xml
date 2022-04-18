@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment"
+    tools:context=".profilescreen.ProfileFragment"
     android:background="@drawable/logo_backgrunn2">
 
     <ImageView
-        android:id="@+id/mainscreen_logo"
+        android:id="@+id/profile_logo"
         android:layout_width="185dp"
         android:layout_height="111dp"
         android:layout_marginStart="114dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/mainscreen_divider_1"
+        android:id="@+id/profile_divider_1"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
@@ -28,11 +28,11 @@
         android:src="@drawable/skjermbilde_2022_04_05_kl__10_32_40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainscreen_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_logo" />
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Event_RecylerView"
+        android:id="@+id/profile_events_recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -41,6 +41,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainscreen_divider_1" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_divider_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
