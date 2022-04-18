@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,7 @@ class EventsFragment : Fragment() {
     private lateinit var myAdapter: EventsAdapter
     private lateinit var loadingSpinner: ProgressBar
     private lateinit var sortSpinner: Spinner
+    private lateinit var eventsFilter: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +43,7 @@ class EventsFragment : Fragment() {
         navView.visibility = View.VISIBLE //Makes bottom navigation bar visible
 
         sortSpinner = view.findViewById(R.id.events_sort_spinner)
+        eventsFilter = view.findViewById(R.id.events_searchview)
 
         ArrayAdapter.createFromResource(
             view.context,
@@ -58,16 +61,32 @@ class EventsFragment : Fragment() {
 
         myRecyclerView.layoutManager = myLayoutManager
 
-        myAdapter = EventsAdapter(viewModel.retreiveEventsList() as MutableList<Event>)
+        myAdapter = EventsAdapter(viewModel.retrieveEventsList())
 
         loadingSpinner.visibility = View.GONE
 
         myRecyclerView.adapter = myAdapter
 
+        setEventsFilter()
+
         onSelectSpinnerItem()
     }
 
-    fun onSelectSpinnerItem() {
+    private fun setEventsFilter() {
+        eventsFilter.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(input: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(input: String?): Boolean {
+                myAdapter.filter.filter(input)
+                return false
+            }
+
+        } )
+    }
+
+    private fun onSelectSpinnerItem() {
         sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -85,7 +104,7 @@ class EventsFragment : Fragment() {
                         sortBy = position
                     ) { success ->
                         if (success) {
-                            myAdapter.swapDataset(viewModel.retreiveEventsList() as MutableList<Event>)
+                            myAdapter.swapDataset(viewModel.retrieveEventsList() as MutableList<Event>)
                             //myRecyclerView.scrollToPosition(0)
                         }
                     }

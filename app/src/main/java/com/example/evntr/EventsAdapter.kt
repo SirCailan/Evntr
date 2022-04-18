@@ -3,17 +3,19 @@ package com.example.evntr
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.evntr.API.Event
 import com.example.evntr.EventsScreen.EventsFragmentDirections
+import com.example.evntr.profilescreen.ProfileFragmentDirections
 import com.squareup.picasso.Picasso
 
 class EventsAdapter(
-    private var dataset: MutableList<Event>
-) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
+    private var dataset: List<Event>
+) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>(), Filterable {
+
+    private var shownDataset: List<Event> = dataset
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var header: TextView = view.findViewById(R.id.event_card_header)
@@ -24,9 +26,25 @@ class EventsAdapter(
 
         init {
             view.setOnClickListener {
-                val eventId = dataset[bindingAdapterPosition]._id
+                val eventId = shownDataset[bindingAdapterPosition].id
+                val fragmentId = it.findNavController().currentDestination?.id
 
-                it.findNavController().navigate(EventsFragmentDirections.actionEventsFragmentToDetailsFragment(eventId))
+                when (fragmentId) {
+                    R.id.events_fragment -> {
+                        it.findNavController().navigate(
+                            EventsFragmentDirections.actionEventsFragmentToDetailsFragment(eventId)
+                        )
+                    }
+                    R.id.profile_fragment -> {
+                        it.findNavController().navigate(
+                            ProfileFragmentDirections.actionProfileFragmentToDetailsFragment(eventId)
+                        )
+                    }
+                    else -> {
+                        Toast.makeText(it.context, "Something went wrong", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
             }
         }
     }
@@ -45,7 +63,7 @@ class EventsAdapter(
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-        val event = dataset[position]
+        val event = shownDataset[position]
 
         holder.header.text = event.name
         holder.timeDate.text = event.date
@@ -55,12 +73,44 @@ class EventsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return dataset.size
+        return shownDataset.size
     }
 
     fun swapDataset(newDataset: MutableList<Event>) {
         dataset = newDataset
+        shownDataset = newDataset
         notifyDataSetChanged()
     }
 
+    override fun getFilter(): Filter {
+        var filteredList: List<Event>
+
+        return object : Filter() {
+            override fun performFiltering(input: CharSequence?): FilterResults {
+                val charSearch = input.toString().lowercase()
+                filteredList = if (charSearch.isEmpty()) {
+                    dataset
+                } else {
+                    val resultList = mutableListOf<Event>()
+                    for (event in dataset) {
+                        if (event.name?.lowercase()?.contains(charSearch) == true) {
+                            resultList.add(event)
+                        }
+                    }
+                    resultList
+                }
+
+                val filterResults = FilterResults()
+                filterResults.values = filteredList
+
+                return filterResults
+            }
+
+            override fun publishResults(input: CharSequence?, results: FilterResults?) {
+                shownDataset = results?.values as List<Event>
+                notifyDataSetChanged()
+            }
+
+        }
+    }
 }
