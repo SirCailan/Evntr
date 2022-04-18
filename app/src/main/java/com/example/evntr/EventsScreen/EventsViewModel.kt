@@ -10,7 +10,7 @@ import com.example.evntr.API.ApiObjectEventList
 
 class EventsViewModel : ViewModel() {
 
-    private var eventsList: MutableList<Event>? = mutableListOf()
+    private var eventsList: List<Event> = listOf()
 
     fun fetchAllEvents(queue: RequestQueue, sortBy: Int, callback: (Boolean) -> Unit) {
         val sortString = getSortString(sortBy)
@@ -24,7 +24,7 @@ class EventsViewModel : ViewModel() {
             { response ->
                 val it = Klaxon().parse<ApiObjectEventList>(response)
 
-                if (it != null) {
+                if (it?.result != null) {
                     eventsList = it.result
 
                     callback(true)
@@ -39,12 +39,8 @@ class EventsViewModel : ViewModel() {
         queue.add(stringRequest)
     }
 
-    fun retreiveEventsList(): List<Event> {
-        if (eventsList != null) {
-            return eventsList as MutableList<Event>
-        } else {
-            return emptyList()
-        }
+    fun retrieveEventsList(): List<Event> {
+        return eventsList
     }
 
     private fun getSortString(sortBy: Int): String {

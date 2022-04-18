@@ -1,17 +1,17 @@
 package com.example.evntr.API
 
-data class Event(
-    val _id: String,
-    val age: String?,
-    val cover: ImageAsset?, //URL
-    val date: String?,
-    val name: String?,
-    val price: String?,
-    val venue: String?
-)
+import com.beust.klaxon.Json
 
-/* val _type: String?,
-    val _updatedAt: String?,
-    val header: String?,
-    val image: Asset?, //URL
-    val text: String?,*/
+data class Event(
+    @Json(name = "_id") val id: String,
+    @Json (serializeNull = false, name = "age") val ageLimit: String?,
+    @Json (serializeNull = false) val category: String?,
+    @Json (serializeNull = false) val cover: ImageAsset?, //URL
+    @Json (serializeNull = false) val date: String?,
+    @Json (serializeNull = false) val host: ReferenceObject?,
+    @Json (serializeNull = false) val image: ImageAsset?,
+    @Json (serializeNull = false) val name: String?,
+    @Json (serializeNull = false) val price: String?,
+    @Json (serializeNull = false) val text: String?,
+    @Json (serializeNull = false) val venue: String?
+)
