@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.toolbox.Volley
-import com.example.evntr.API.ApiEventLite
+import com.example.evntr.API.Event
 import com.example.evntr.EventsAdapter
 import com.example.evntr.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,12 +20,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class EventsFragment : Fragment() {
     private val viewModel: EventsViewModel by viewModels()
 
-    private lateinit var backButton: Button
     private lateinit var myRecyclerView: RecyclerView
     private lateinit var myLayoutManager: LinearLayoutManager
     private lateinit var myAdapter: EventsAdapter
     private lateinit var loadingSpinner: ProgressBar
     private lateinit var sortSpinner: Spinner
+    private lateinit var eventsFilter: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,10 +40,10 @@ class EventsFragment : Fragment() {
 
         val navView: BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
 
-        navView.visibility = View.VISIBLE
+        navView.visibility = View.VISIBLE //Makes bottom navigation bar visible
 
-        backButton = view.findViewById(R.id.Event_Back_Button)
         sortSpinner = view.findViewById(R.id.events_sort_spinner)
+        eventsFilter = view.findViewById(R.id.events_searchview)
 
         ArrayAdapter.createFromResource(
             view.context,
@@ -54,10 +54,6 @@ class EventsFragment : Fragment() {
             sortSpinner.adapter = spinnerAdapter
         }
 
-        backButton.setOnClickListener {
-            findNavController().popBackStack()
-        }
-
         loadingSpinner = view.findViewById(R.id.events_progressbar)
 
         myRecyclerView = view.findViewById(R.id.Event_RecylerView)
@@ -65,17 +61,32 @@ class EventsFragment : Fragment() {
 
         myRecyclerView.layoutManager = myLayoutManager
 
-
-        myAdapter = EventsAdapter(viewModel.retreiveEventsList() as MutableList<ApiEventLite>)
+        myAdapter = EventsAdapter(viewModel.retrieveEventsList())
 
         loadingSpinner.visibility = View.GONE
 
         myRecyclerView.adapter = myAdapter
 
+        setEventsFilter()
+
         onSelectSpinnerItem()
     }
 
-    fun onSelectSpinnerItem() {
+    private fun setEventsFilter() {
+        eventsFilter.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(input: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(input: String?): Boolean {
+                myAdapter.filter.filter(input)
+                return false
+            }
+
+        } )
+    }
+
+    private fun onSelectSpinnerItem() {
         sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -92,9 +103,9 @@ class EventsFragment : Fragment() {
                         Volley.newRequestQueue(context),
                         sortBy = position
                     ) { success ->
-                        if (success == true) {
-                            myAdapter.swapDataset(viewModel.retreiveEventsList() as MutableList<ApiEventLite>)
-                            myRecyclerView.scrollToPosition(0)
+                        if (success) {
+                            myAdapter.swapDataset(viewModel.retrieveEventsList() as MutableList<Event>)
+                            //myRecyclerView.scrollToPosition(0)
                         }
                     }
                 }

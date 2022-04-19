@@ -13,8 +13,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.toolbox.Volley
-import com.example.evntr.API.ApiEventFull
+import com.example.evntr.API.Event
 import com.example.evntr.R
+import com.example.evntr.myEventsList
 import com.squareup.picasso.Picasso
 
 
@@ -88,7 +89,7 @@ class DetailsFragment : Fragment() {
                 eventPrice.text = "Kr. ${event.price},-"
                 eventHost.text = event.host?.name //TODO, fix proper name for host
                 eventType.text = event.category
-                eventAgeLimit.text = event.age
+                eventAgeLimit.text = event.ageLimit
                 eventDescription.text = event.text
             }
         }
@@ -101,16 +102,14 @@ class DetailsFragment : Fragment() {
         loadingSpinner.visibility = View.GONE
     }
 
-    private fun setAddButton(event: ApiEventFull) {
+    private fun setAddButton(event: Event) {
 
         addButton.setOnClickListener {
 
-            //TODO: Add to list of events you're participating in.
+            myEventsList.add(event)
 
             addButton.text = "Added!"
             addButton.isClickable = false
         }
-
-
     }
 }
