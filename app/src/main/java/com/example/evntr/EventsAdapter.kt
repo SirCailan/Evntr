@@ -10,6 +10,9 @@ import com.example.evntr.API.Event
 import com.example.evntr.EventsScreen.EventsFragmentDirections
 import com.example.evntr.profilescreen.ProfileFragmentDirections
 import com.squareup.picasso.Picasso
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class EventsAdapter(
     private var dataset: List<Event>
@@ -65,8 +68,15 @@ class EventsAdapter(
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = shownDataset[position]
 
+        val inputFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+        val outputFormat: DateFormat = SimpleDateFormat("hh:mm\ndd/MM/yyyy", Locale.getDefault())
+
+        val date = inputFormat.parse(event.date) ?: Date()
+
+
+        holder.timeDate.text = "Kl: ${outputFormat.format(date)}"
         holder.header.text = event.name
-        holder.timeDate.text = event.date
+        //holder.timeDate.text = event.date
         holder.location.text = event.venue
         holder.price.text = "Kr. ${event.price},-"
         Picasso.with(holder.image.context).load(event.cover?.asset?.url).into(holder.image)

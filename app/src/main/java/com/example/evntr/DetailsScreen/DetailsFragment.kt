@@ -17,6 +17,9 @@ import com.example.evntr.API.Event
 import com.example.evntr.R
 import com.example.evntr.myEventsList
 import com.squareup.picasso.Picasso
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class DetailsFragment : Fragment() {
@@ -83,8 +86,14 @@ class DetailsFragment : Fragment() {
 
                 enableVisibility()
 
+                val inputFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+                val outputFormat: DateFormat = SimpleDateFormat("hh:mm\ndd/MM/yyyy", Locale.getDefault())
+
+                val date = inputFormat.parse(event.date) ?: Date()
+                eventTime.text = "Kl: ${outputFormat.format(date)}"
+
                 eventName.text = event.name
-                eventTime.text = event.date
+                //eventTime.text = event.date
                 eventVenue.text = event.venue
                 eventPrice.text = "Kr. ${event.price},-"
                 eventHost.text = event.host?.name //TODO, fix proper name for host
