@@ -17,9 +17,13 @@ export default {
 
         },
         {
-            title: 'Place / Venue',
-            name: 'venue',
-            type: 'string',
+			title: 'Venues',
+			name: 'venues',
+			type: 'array',
+			of: [{ 
+				type: 'reference', 
+				to: [{ type: 'venue' }] 
+			}],
             validation: Rule => Rule.required(),
         },
         {
